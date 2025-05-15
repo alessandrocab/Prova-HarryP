@@ -32,11 +32,11 @@ export default function SecretReveal() {
         <img
           src="https://www.viaggiaescopri.it/wp-content/uploads/2012/10/Chiesa-di-San-Nicol%C3%B2-cosa-vedere-a-Guspini.jpg"
           alt="Luogo segreto"
-          className="absolute inset-0 w-full h-full object-contain z-0"
+          className="absolute inset-0 w-full h-full object-cover z-0"
         />
       ) : (
         <div
-          className="absolute inset-0 bg-center bg-no-repeat bg-contain bg-gray-900 z-0"
+          className="absolute inset-0 bg-center bg-no-repeat bg-cover bg-gray-900 z-0"
           style={{
             backgroundImage: "url('https://img.posterstore.com/zoom/wb0101-8harrypotter-thephilosophersstoneno150x70.jpg')",
           }}
@@ -44,7 +44,7 @@ export default function SecretReveal() {
       )}
 
       {!revealed && (
-        <div className="relative z-10 flex items-center justify-center w-full">
+        <div className="relative z-10 flex items-center justify-center w-full min-h-screen">
           <div className="bg-white bg-opacity-80 rounded-2xl p-6 shadow-xl w-full max-w-md text-center mx-2 sm:mx-auto">
             <h1 className="text-lg sm:text-xl font-bold mb-4">
               Per svelare il segreto del luogo nascosto inserisci la combinazione corretta
