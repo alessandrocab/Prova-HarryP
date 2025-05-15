@@ -2,10 +2,6 @@
 
 import { useState, useEffect } from "react";
 
-// ... resto del componente come già scritto
-
-import { useState, useEffect } from "react";
-
 export default function SecretReveal() {
   const [input, setInput] = useState("");
   const [revealed, setRevealed] = useState(false);
