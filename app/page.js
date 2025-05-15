@@ -1,3 +1,9 @@
+'use client';
+
+import { useState, useEffect } from "react";
+
+// ... resto del componente come già scritto
+
 import { useState, useEffect } from "react";
 
 export default function SecretReveal() {
