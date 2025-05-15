@@ -36,7 +36,7 @@ export default function SecretReveal() {
         />
       ) : (
         <div
-          className="absolute inset-0 bg-center bg-no-repeat bg-contain z-0"
+          className="absolute inset-0 bg-center bg-no-repeat bg-contain bg-gray-900 z-0"
           style={{
             backgroundImage: "url('https://img.posterstore.com/zoom/wb0101-8harrypotter-thephilosophersstoneno150x70.jpg')",
           }}
@@ -44,33 +44,35 @@ export default function SecretReveal() {
       )}
 
       {!revealed && (
-        <div className="relative z-10 bg-white bg-opacity-80 rounded-2xl p-6 shadow-xl w-full max-w-md text-center mx-2 sm:mx-auto">
-          <h1 className="text-lg sm:text-xl font-bold mb-4">
-            Per svelare il segreto del luogo nascosto inserisci la combinazione corretta
-          </h1>
-          <div className="relative mb-4">
-            <input
-              type={showPassword ? "text" : "password"}
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="Inserisci combinazione"
-              className="pr-10 text-base w-full border rounded px-3 py-2"
-            />
+        <div className="relative z-10 flex items-center justify-center w-full">
+          <div className="bg-white bg-opacity-80 rounded-2xl p-6 shadow-xl w-full max-w-md text-center mx-2 sm:mx-auto">
+            <h1 className="text-lg sm:text-xl font-bold mb-4">
+              Per svelare il segreto del luogo nascosto inserisci la combinazione corretta
+            </h1>
+            <div className="relative mb-4">
+              <input
+                type={showPassword ? "text" : "password"}
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Inserisci combinazione"
+                className="pr-10 text-base w-full border rounded px-3 py-2"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword((prev) => !prev)}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600 text-xl"
+                aria-label="Mostra password"
+              >
+                {showPassword ? "🙈" : "👁"}
+              </button>
+            </div>
             <button
-              type="button"
-              onClick={() => setShowPassword((prev) => !prev)}
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600 text-xl"
-              aria-label="Mostra password"
+              onClick={handleCheck}
+              className="w-full text-base py-2 bg-blue-600 hover:bg-blue-700 text-white rounded"
             >
-              {showPassword ? "🙈" : "👁"}
+              Svela il segreto
             </button>
           </div>
-          <button
-            onClick={handleCheck}
-            className="w-full text-base py-2 bg-blue-600 hover:bg-blue-700 text-white rounded"
-          >
-            Svela il segreto
-          </button>
         </div>
       )}
 
