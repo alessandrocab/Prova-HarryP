@@ -27,16 +27,24 @@ export default function SecretReveal() {
   };
 
   return (
-    <div
-      className={`min-h-screen flex items-center justify-center bg-cover bg-center p-4 relative transition-all duration-500 ${orientation === "landscape" ? "flex-row" : "flex-col"}`}
-      style={{
-        backgroundImage: revealed
-          ? "url('https://www.viaggiaescopri.it/wp-content/uploads/2012/10/Chiesa-di-San-Nicol%C3%B2-cosa-vedere-a-Guspini.jpg')"
-          : "url('https://img.posterstore.com/zoom/wb0101-8harrypotter-thephilosophersstoneno150x70.jpg')",
-      }}
-    >
+    <div className={`min-h-screen flex items-center justify-center p-4 relative transition-all duration-500 ${orientation === "landscape" ? "flex-row" : "flex-col"}`}>
+      {revealed ? (
+        <img
+          src="https://www.viaggiaescopri.it/wp-content/uploads/2012/10/Chiesa-di-San-Nicol%C3%B2-cosa-vedere-a-Guspini.jpg"
+          alt="Luogo segreto"
+          className="absolute inset-0 w-full h-full object-contain z-0"
+        />
+      ) : (
+        <div
+          className="absolute inset-0 bg-center bg-no-repeat bg-contain z-0"
+          style={{
+            backgroundImage: "url('https://img.posterstore.com/zoom/wb0101-8harrypotter-thephilosophersstoneno150x70.jpg')",
+          }}
+        />
+      )}
+
       {!revealed && (
-        <div className="bg-white bg-opacity-80 rounded-2xl p-6 shadow-xl w-full max-w-md text-center mx-2 sm:mx-auto">
+        <div className="relative z-10 bg-white bg-opacity-80 rounded-2xl p-6 shadow-xl w-full max-w-md text-center mx-2 sm:mx-auto">
           <h1 className="text-lg sm:text-xl font-bold mb-4">
             Per svelare il segreto del luogo nascosto inserisci la combinazione corretta
           </h1>
@@ -67,7 +75,7 @@ export default function SecretReveal() {
       )}
 
       {revealed && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-40 text-white text-center p-4">
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-40 text-white text-center p-4 z-10">
           <p className="text-xl font-semibold mb-6">
             Hai svelato il luogo nascosto!
           </p>
