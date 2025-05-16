@@ -28,28 +28,27 @@ export default function SecretReveal() {
 
   return (
     <div
-      className="relative min-h-screen w-full flex items-center justify-center p-4"
+      className="relative min-h-screen w-full bg-center bg-no-repeat bg-cover flex items-center justify-center p-4"
       style={{
         backgroundImage: revealed
-          ? "url('/revealed.jpg')"
-          : "url('/background.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
+          ? "url('/images/revealed.jpg')"
+          : "url('/images/background.jpg')",
       }}
     >
+      <div className="absolute inset-0 bg-black bg-opacity-30 z-0" />
+
       {!revealed && (
-        <div className="bg-white bg-opacity-80 rounded-2xl p-6 shadow-xl w-full max-w-md text-center flex flex-col items-center justify-center">
-          <h1 className="text-lg sm:text-xl font-bold mb-4">
-            Per svelare il segreto del luogo nascosto inserisci la combinazione corretta
+        <div className="relative z-10 bg-white bg-opacity-90 rounded-2xl p-8 shadow-2xl w-full max-w-md text-center flex flex-col items-center justify-center backdrop-blur-sm">
+          <h1 className="text-xl sm:text-2xl font-bold mb-5 text-gray-800">
+            Inserisci la combinazione segreta per svelare il luogo nascosto
           </h1>
           <div className="relative mb-4 w-full">
             <input
               type={showPassword ? "text" : "password"}
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Inserisci combinazione"
-              className="pr-10 text-base w-full border rounded px-3 py-2"
+              placeholder="Es: segreto123"
+              className="pr-10 w-full text-base border border-gray-400 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <button
               type="button"
@@ -62,24 +61,24 @@ export default function SecretReveal() {
           </div>
           <button
             onClick={handleCheck}
-            className="w-full text-base py-2 bg-blue-600 hover:bg-blue-700 text-white rounded"
+            className="w-full text-base py-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-lg shadow-md transition duration-200"
           >
-            Svela il segreto
+            ✨ Svela il segreto ✨
           </button>
         </div>
       )}
 
       {revealed && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-40 text-white text-center p-4">
-          <p className="text-xl font-semibold mb-6">
-            Hai svelato il luogo nascosto!
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white text-center p-4 z-10">
+          <p className="text-2xl font-semibold mb-6">
+            🎉 Hai svelato il luogo nascosto! 🎉
           </p>
           <button
             onClick={() => {
               setRevealed(false);
               setInput("");
             }}
-            className="text-base px-4 py-2 bg-white text-black rounded-lg"
+            className="text-base px-6 py-2 bg-white text-black rounded-lg shadow hover:bg-gray-200 transition"
           >
             ⬅ Torna indietro
           </button>
