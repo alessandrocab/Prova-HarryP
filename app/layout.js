@@ -1,3 +1,5 @@
+import './globals.css';
+
 export const metadata = {
   title: 'Secret Combination App',
   description: 'Scopri il luogo nascosto inserendo la combinazione corretta',
